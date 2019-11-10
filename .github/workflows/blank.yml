@@ -1,5 +1,7 @@
 name: runtests
 
+on: [pull_request, push]
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
