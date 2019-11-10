@@ -18,6 +18,7 @@ jobs:
     
     steps:
       - name: "Set up Julia"
+        uses: julia-actions/setup-julia@v0.2
         with:
           version: ${{ matrix.julia-version }}
           arch: ${{ matrix.julia-arch }}
