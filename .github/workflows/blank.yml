@@ -11,10 +11,11 @@ jobs:
         julia-arch: [x86]
         os: [ubuntu-latest]
     steps:
+      - uses: actions/checkout@master
       - uses: julia-actions/setup-julia@latest
         with:
           version: ${{ matrix.julia-version }}
-      - uses: actions/checkout@master
       - name: test
         run: |
-             julia --project=@. -e "using Pkg; Pkg.test();"
+             julia --project -e 'using Pkg; pkg"instantiate"'
+             julia --project -e 'using Pkg; pkg"test"'
