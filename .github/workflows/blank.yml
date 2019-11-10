@@ -14,5 +14,7 @@ jobs:
       - uses: julia-actions/setup-julia@latest
         with:
           version: ${{ matrix.julia-version }}
+      - uses: actions/checkout@master
       - name: test
-        run: julia --project -e 'using Pkg; pkg"test"'
+        run: |
+             julia --project=@. -e "using Pkg; Pkg.test();"
